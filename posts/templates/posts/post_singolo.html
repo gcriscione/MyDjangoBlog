@@ -7,6 +7,12 @@
     <title>Post Singolo</title>
 </head>
 <body>
-    
+
+    <h1>{{ object.titolo }}</h1>
+    <h3>{{ object.data }}</h3>
+    <p>{{ object.contenuto|linebreaks|truncatewords_html:50 }}</p>
+
+
+    <a href="{% url 'lista_post' %}">torna indietro</a>
 </body>
 </html>

@@ -7,6 +7,16 @@
     <title>Lista Post</title>
 </head>
 <body>
+
+    {% for object in object_list %}
+        <br>
+        <a href="{{ object.get_absolute_url }}">
+            <h1>{{ object.titolo }}</h1>
+        </a>
+        <h3>{{ object.data }}</h3>
+        <p>{{ object.contenuto|linebreaks|truncatewords_html:50 }}</p>
+        <hr>
+    {% endfor %}
     
 </body>
 </html>

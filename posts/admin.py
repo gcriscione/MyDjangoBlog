@@ -7,7 +7,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ["__str__", "data"]
     list_filter = ["data"]
     search_fields = ["titolo", "contenuto"]
-    prepopulated_fields = {"slag": ("titolo",) }
+    prepopulated_fields = {"slug": ("titolo",) }
 
     class Meta:
         model = Post
