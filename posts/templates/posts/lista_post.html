@@ -1,12 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Post</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}Lista Post{% endblock head_title %}
+{% block style_css %}
+<link rel="stylesheet" href="{% static 'posts/css/lista_post.css' %}" />
+{% endblock style_css %}
+
+
+{% block content %}
+
+    <div class="">
+        <span class="">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; Prima Pagina</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Successiva</a>
+            {% endif %}
+    
+            <span class="current">
+                Pagina {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Successiva</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Ultima Pagina &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <br><br><hr><hr><br><br>
 
     {% for object in object_list %}
         <br>
@@ -17,6 +38,7 @@
         <p>{{ object.contenuto|linebreaks|truncatewords_html:50 }}</p>
         <hr>
     {% endfor %}
+
+    <br><br><br>
     
-</body>
-</html>
+{% endblock content %}

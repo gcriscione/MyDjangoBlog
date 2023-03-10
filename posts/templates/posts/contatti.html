@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}{{ block.super }} | Contatti{% endblock head_title %}
+
+
+{% block content %}
+    <h1>Contattaci alla seguente email:</h1>
+    <h2>mia_mail@gmail.com</h2>
+    <img src="{% static 'posts/img/photo.jpg' %}">
+{% endblock content %}
